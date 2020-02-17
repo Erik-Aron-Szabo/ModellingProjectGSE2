@@ -4,11 +4,16 @@ using System.Text;
 
 namespace ModellingProjectGSE2
 {
-    public class Program
+    public class DeckOfCards
     {
-        public static void Main(string[] args)
+        public List<Card> DeckOfCard { get; set; }
+
+
+        public DeckOfCards()
         {
 
         }
+
+
     }
 }

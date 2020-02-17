@@ -6,6 +6,7 @@ namespace ModellingProjectGSE2
 {
     public class Menu
     {
+        public List<string> Options = new List<string> { "Start 'game'", "Exit" };
 
         public void DisplayMenu(string intro, List<string> options)
         {
@@ -19,7 +20,10 @@ namespace ModellingProjectGSE2
             }
         }
 
+        public Menu()
+        {
 
+        }
 
 
 

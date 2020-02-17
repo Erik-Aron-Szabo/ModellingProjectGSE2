@@ -1,139 +1,139 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <BodyBuilders>
   <fighter id="1">
-    <name>Arnold Schwarzenegger</name>
+    <name>Fekete Fek</name>
     <weight>113</weight>
     <pushup>200</pushup>
     <numbersofshot>10</numbersofshot>
   </fighter>
   <fighter id="2">
-    <name>Rich Gaspari</name>
+    <name>Tolgyfa Istvan</name>
     <weight>106</weight>
     <pushup>172</pushup>
     <numbersofshot>14</numbersofshot>
   </fighter>
   <fighter id="3">
-    <name>Jeff Seid</name>
+    <name>Szak Adrian</name>
     <weight>100</weight>
     <pushup>167</pushup>
     <numbersofshot>12</numbersofshot>
   </fighter>
   <fighter id="4">
-    <name>Lazar Angelov</name>
+    <name>Nyomi Zombor</name>
     <weight>113</weight>
     <pushup>200</pushup>
     <numbersofshot>9</numbersofshot>
   </fighter>
   <fighter id="5">
-    <name>Kai Greene</name>
+    <name>Almas David</name>
     <weight>103</weight>
     <pushup>177</pushup>
     <numbersofshot>17</numbersofshot>
   </fighter>
   <fighter id="6">
-    <name>Steve Cook</name>
+    <name>Tepsis Tamas</name>
     <weight>99</weight>
     <pushup>139</pushup>
     <numbersofshot>12</numbersofshot>
   </fighter>
   <fighter id="7">
-    <name>Mike Chang</name>
+    <name>Lapatos Laci</name>
     <weight>106</weight>
     <pushup>170</pushup>
     <numbersofshot>6</numbersofshot>
   </fighter>
   <fighter id="8">
-    <name>Calum Von Moger</name>
+    <name>Kertes Kevin</name>
     <weight>120</weight>
     <pushup>180</pushup>
     <numbersofshot>17</numbersofshot>
   </fighter>
   <fighter id="9">
-    <name>Christian Guzman</name>
+    <name>Diktator Daniel</name>
     <weight>89</weight>
     <pushup>162</pushup>
     <numbersofshot>9</numbersofshot>
   </fighter>
   <fighter id="10">
-    <name>Mike Rashid</name>
+    <name>Im From India</name>
     <weight>125</weight>
     <pushup>188</pushup>
     <numbersofshot>19</numbersofshot>
   </fighter>
   <fighter id="11">
-    <name>Mike O’Hearn</name>
+    <name>Sebesz Misi</name>
     <weight>111</weight>
     <pushup>177</pushup>
     <numbersofshot>10</numbersofshot>
   </fighter>
   <fighter id="12">
-    <name>Hodge Twins</name>
+    <name>Ugyes Gergo</name>
     <weight>240</weight>
     <pushup>397</pushup>
     <numbersofshot>35</numbersofshot>
   </fighter>
   <fighter id="13">
-    <name>Dorian Yates</name>
+    <name>Szena Szabolcs</name>
     <weight>114</weight>
     <pushup>189</pushup>
     <numbersofshot>9</numbersofshot>
   </fighter>
   <fighter id="14">
-    <name>Phil Heath</name>
+    <name>Fehrjepor Feri</name>
     <weight>101</weight>
     <pushup>168</pushup>
     <numbersofshot>13</numbersofshot>
   </fighter>
   <fighter id="15">
-    <name>Lee Haney</name>
+    <name>Lakattalan Balazs</name>
     <weight>102</weight>
     <pushup>170</pushup>
     <numbersofshot>12</numbersofshot>
   </fighter>
   <fighter id="16">
-    <name>Lou Ferrigno</name>
+    <name>Olaszosan Otto</name>
     <weight>112</weight>
     <pushup>199</pushup>
     <numbersofshot>7</numbersofshot>
   </fighter>
   <fighter id="17">
-    <name>Dexter Jackson</name>
+    <name>Magyarosan Matyi</name>
     <weight>107</weight>
     <pushup>191</pushup>
     <numbersofshot>15</numbersofshot>
   </fighter>
   <fighter id="18">
-    <name>Gary Strydom</name>
+    <name>Felhotlen Ferencz</name>
     <weight>105</weight>
     <pushup>181</pushup>
     <numbersofshot>10</numbersofshot>
   </fighter>
   <fighter id="19">
-    <name>Ronnie Coleman</name>
+    <name>Hardworker Matyas</name>
     <weight>100</weight>
     <pushup>10</pushup>
     <numbersofshot>1</numbersofshot>
   </fighter>
   <fighter id="20">
-    <name>Jay Cutler</name>
+    <name>Kicsi Tomi</name>
     <weight>116</weight>
     <pushup>189</pushup>
     <numbersofshot>20</numbersofshot>
   </fighter>
   <fighter id="21">
-    <name>Rambo 3</name>
+    <name>Szab Szilveszter</name>
     <weight>90</weight>
     <pushup>160</pushup>
     <numbersofshot>17</numbersofshot>
   </fighter>
   <fighter id="22">
-    <name>Rambo 2</name>
+    <name>Zab Zoli</name>
     <weight>95</weight>
     <pushup>167</pushup>
     <numbersofshot>18</numbersofshot>
   </fighter>
   <fighter id="23">
-    <name>Rambo 1</name>
+    <name>Why Jackson</name>
     <weight>97</weight>
     <pushup>172</pushup>
     <numbersofshot>19</numbersofshot>

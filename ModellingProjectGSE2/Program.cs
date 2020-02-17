@@ -11,7 +11,7 @@ namespace ModellingProjectGSE2
             Menu MainMenu = new Menu();
             Read read = new Read();
 
-            MainMenu.DisplayMenu("Welcome to the Redneck Bodybuilding simulator!", MainMenu.Options);
+            //MainMenu.DisplayMenu("Welcome to the Redneck Bodybuilding simulator!", MainMenu.Options);
             read.Reading("bodybuilders.xml");
 
 

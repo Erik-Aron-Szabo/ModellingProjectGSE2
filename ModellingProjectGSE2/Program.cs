@@ -17,18 +17,21 @@ namespace ModellingProjectGSE2
         public static void Main(string[] args)
         {
             Menu MainMenu = new Menu();
+            Utility util = new Utility();
             Read read = new Read();
+            Card card = new Card();
             //MainMenu.DisplayMenu("Welcome to the Redneck Bodybuilding simulator!", MainMenu.Options);
-            
-            read.LoadFromXMLParts("bodybuilders.xml");
-            
-            
-            
-            
-    
-    
-    
-    
+
+
+            util.ElementaryDealer(2, card.LoadFromXMLParts());
+
+
+
+
+
+
+
+
 
         }
     }

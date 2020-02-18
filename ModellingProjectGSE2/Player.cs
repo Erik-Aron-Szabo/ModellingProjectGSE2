@@ -15,8 +15,16 @@ namespace ModellingProjectGSE2
             this.Name = name;
             this.Hand = hand;
         }
+        public Player(string name)
+        {
+            this.Name = name;
+            this.Hand = new List<Card>();
+        }
 
+        public Player()
+        {
 
+        }
 
     }
 }

@@ -55,7 +55,11 @@ namespace ModellingProjectGSE2
             }
             int dealtCards;
             int nextCard=0;
-            int lengthOfName_char = 0;
+            int lengthOfName = 0;
+            int lengthOfWeight = 0;
+            int lengthOfPushup = 0;
+            int lengthOfShots = 0;
+
 
             for (int i = 0; i < players.Count; i++)
             {
@@ -63,37 +67,36 @@ namespace ModellingProjectGSE2
                 while (dealtCards != goodDeck.Count/players.Count)
                 {
                     
-                    if (goodDeck[nextCard]._name.Length> lengthOfName_char)
+                    if (goodDeck[nextCard]._name.Length> lengthOfName)
                     {
-                        lengthOfName_char = goodDeck[nextCard]._name.Length;
+                        lengthOfName = goodDeck[nextCard]._name.Length;
                     }
-                    /*
-                    if (goodDeck[nextCard]._weight.Length > lengthOfName_char)
+                    if (goodDeck[nextCard]._weight.ToString().Length > lengthOfWeight)
                     {
-                        lengthOfName_char = goodDeck[nextCard]._name.Length;
+                        lengthOfWeight = goodDeck[nextCard]._weight.ToString().Length;
                     }
-                    if (goodDeck[nextCard]._name.Length > lengthOfName_char)
+                    
+                    if (goodDeck[nextCard]._pushup.ToString().Length > lengthOfPushup)
                     {
-                        lengthOfName_char = goodDeck[nextCard]._name.Length;
+                        lengthOfPushup = goodDeck[nextCard]._pushup.ToString().Length;
                     }
-                    if (goodDeck[nextCard]._name.Length > lengthOfName_char)
+                    if (goodDeck[nextCard]._nmrOfShots.ToString().Length > lengthOfShots)
                     {
-                        lengthOfName_char = goodDeck[nextCard]._name.Length;
+                        lengthOfShots = goodDeck[nextCard]._nmrOfShots.ToString().Length;
                     }
-                    */
                     players[i].Hand.Add(goodDeck[nextCard]);
                     dealtCards++;
                     nextCard++;
                 }
             }
-            Console.WriteLine(lengthOfName_char);
+
             for (int i = 0; i < players.Count; i++)
             {
                 Console.WriteLine($"P{(i+1)} ");
                 foreach (Card card in players[i].Hand)
                 {
-                    //Console.WriteLine($"{{0,{lengthOfName_char}}} {card._weight,4}", card._name);
-                    Console.WriteLine($"{card._name,17}, {card._weight,4}, {card._pushup,4}, {card._nmrOfShots,3}  ");
+                    Console.WriteLine($"{{0,{lengthOfName+1}}} {{1,{lengthOfWeight+1}}}, {{2,{lengthOfPushup+1}}}, {{3,{lengthOfShots+1}}}",
+                        card._name, card._weight,card._pushup,card._nmrOfShots);
                 }
             }
         }

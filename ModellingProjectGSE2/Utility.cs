@@ -55,23 +55,45 @@ namespace ModellingProjectGSE2
             }
             int dealtCards;
             int nextCard=0;
+            int lengthOfName_char = 0;
+
             for (int i = 0; i < players.Count; i++)
             {
                 dealtCards = 0;
                 while (dealtCards != goodDeck.Count/players.Count)
                 {
+                    
+                    if (goodDeck[nextCard]._name.Length> lengthOfName_char)
+                    {
+                        lengthOfName_char = goodDeck[nextCard]._name.Length;
+                    }
+                    /*
+                    if (goodDeck[nextCard]._weight.Length > lengthOfName_char)
+                    {
+                        lengthOfName_char = goodDeck[nextCard]._name.Length;
+                    }
+                    if (goodDeck[nextCard]._name.Length > lengthOfName_char)
+                    {
+                        lengthOfName_char = goodDeck[nextCard]._name.Length;
+                    }
+                    if (goodDeck[nextCard]._name.Length > lengthOfName_char)
+                    {
+                        lengthOfName_char = goodDeck[nextCard]._name.Length;
+                    }
+                    */
                     players[i].Hand.Add(goodDeck[nextCard]);
                     dealtCards++;
                     nextCard++;
                 }
             }
-            
+            Console.WriteLine(lengthOfName_char);
             for (int i = 0; i < players.Count; i++)
             {
                 Console.WriteLine($"P{(i+1)} ");
                 foreach (Card card in players[i].Hand)
                 {
-                    Console.WriteLine($"{card._name}, {card._weight}, {card._pushup}, {card._nmrOfShots}  ");
+                    //Console.WriteLine($"{{0,{lengthOfName_char}}} {card._weight,4}", card._name);
+                    Console.WriteLine($"{card._name,17}, {card._weight,4}, {card._pushup,4}, {card._nmrOfShots,3}  ");
                 }
             }
         }

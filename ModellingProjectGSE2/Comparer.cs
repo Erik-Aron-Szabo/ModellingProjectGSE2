@@ -7,59 +7,64 @@ namespace ModellingProjectGSE2
 {
     public class Comparer : IComparer<Card>
     {
-        public Card Compare(Card a, Card b)
-        {
-            Console.WriteLine("Attribute: ");
-            Console.WriteLine("weight or pushup or shots");
-            string attribute = Console.ReadLine();
-            Card none = new Card();
-
-            if (attribute == "weight")
-            {
-                if (a._weight > b._weight)
-                {
-                    return a;
-                }
-                else
-                {
-                    return b;
-                }
-            }
-
-            else if (attribute == "pushup")
-            {
-                if (a._pushup > b._pushup)
-                {
-                    return a;
-                }
-                else
-                {
-                    return b;
-                }
-            }
-
-            else if (attribute == "shots")
-            {
-                if (a._nmrOfShots > b._nmrOfShots)
-                {
-                    return a;
-                }
-                else
-                {
-                    return b;
-                }   
-            }
-            return none;
-        }
-
-        public int Compare([AllowNull] Card x, [AllowNull] Card y)
+        int IComparer<Card>.Compare(Card x, Card y)
         {
             throw new NotImplementedException();
         }
-
+        
         public Comparer()
         {
 
         }
+        public int PushupCompare([AllowNull] Card a, [AllowNull] Card b)
+        {
+
+            if (a._pushup > b._pushup)
+            {
+                return 1;
+            }
+            else if (a._pushup < b._pushup)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
+        public int ShotsCompare([AllowNull] Card a, [AllowNull] Card b)
+        {
+
+            if (a._nmrOfShots > b._nmrOfShots)
+            {
+                return 1;
+            }
+            else if (a._nmrOfShots < b._nmrOfShots)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
+        public int WeightCompare([AllowNull] Card a, [AllowNull] Card b)
+        {
+            if (a._weight > b._weight)
+            {
+                return 1;
+            }
+            else if (a._weight < b._weight)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
     }
 }

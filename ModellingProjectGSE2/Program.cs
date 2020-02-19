@@ -17,7 +17,7 @@ namespace ModellingProjectGSE2
         private List<Player> players;
         public static void Main(string[] args)
         {
-            Comparer comparer = new Comparer(); //  Comparing cards (only 2 for now)
+            Comparer Comparer = new Comparer(); //  Comparing cards (only 2 for now)
             Menu MainMenu = new Menu();
             Utility util = new Utility();
             Read read = new Read();

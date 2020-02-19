@@ -5,9 +5,9 @@ using System.Text;
 
 namespace ModellingProjectGSE2
 {
-    public class Comparer : IComparer<Card>
+    public class WeightComparer : IComparer<Card>
     {
-        public  
+        //instan
         public Card Compare(Card a, Card b)
         {
             Console.WriteLine("Attribute: ");

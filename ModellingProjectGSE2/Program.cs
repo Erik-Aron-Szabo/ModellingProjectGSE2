@@ -27,7 +27,7 @@ namespace ModellingProjectGSE2
             int numOfPlayers;
             numOfPlayers = util.GetListOfPlayers().Count();
 
-            util.ElementaryDealer(numOfPlayers, card.LoadFromXMLParts());
+            util.ElementaryDealer(numOfPlayers, read.LoadFromXMLParts());
             while (true) //util.GameNotOver(List<Player> listOfPlayers)
             {
                 

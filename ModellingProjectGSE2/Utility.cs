@@ -50,15 +50,15 @@ namespace ModellingProjectGSE2
                 players.Add(new Player(name));
 
             }
-            int r = deck.Count;
-            int j = 0;
-            while (r!=j)
+            for (int i = 0; i < deck.Count; i++)
             {
-                for (int i = 0; i < players.Count; i++)
+                if (i==0 || i%2==0)
                 {
-                    players[i].Hand.Add(deck[j]);
-                    deck.RemoveAt(0);
-                    //sanyi itt j'rt tegnap
+                    players[0].Hand.Add(deck[i]);
+                }
+                else
+                {
+                    players[1].Hand.Add(deck[i]);
                 }
             }
 
@@ -68,7 +68,7 @@ namespace ModellingProjectGSE2
                 Console.WriteLine($"P{(i+1)} ");
                 foreach (Card card in players[i].Hand)
                 {
-                    Console.WriteLine($"{card._name}, {card._pushup}, {card._nmrOfShots}, ");
+                    Console.WriteLine($"{card._name}, {card._weight}, {card._pushup}, {card._nmrOfShots}  ");
                 }
             }
         }

@@ -9,7 +9,10 @@ namespace ModellingProjectGSE2
     {
         List<Player> players;
         Player actualPlayer;
-
+        public List<Player> GetPlayers()
+        {
+            return this.players;
+        }
         public void Switch(string ui) //DELEGATE here
         {
 
@@ -90,15 +93,17 @@ namespace ModellingProjectGSE2
                 }
             }
 
+
             for (int i = 0; i < players.Count; i++)
             {
-                Console.WriteLine($"P{(i+1)} ");
+                Console.WriteLine($"{players[i].Name} ");
                 foreach (Card card in players[i].Hand)
                 {
                     Console.WriteLine($"{{0,{lengthOfName+1}}} {{1,{lengthOfWeight+1}}}, {{2,{lengthOfPushup+1}}}, {{3,{lengthOfShots+1}}}",
                         card._name, card._weight,card._pushup,card._nmrOfShots);
                 }
             }
+
         }
 
 

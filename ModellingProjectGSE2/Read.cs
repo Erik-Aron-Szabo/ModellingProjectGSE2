@@ -20,25 +20,7 @@ namespace ModellingProjectGSE2
 
         }
 
-        
-        public void SaveToXMLParts()
-        {
-            XElement root = new XElement("Cards"); // creating the root for the car object
-
-            foreach (Card card in _listOfCards) // iterating through the car objects
-            {
-                root.Add( // building the tree of the car DOM
-                    new XElement("Card",
-                        new XElement("Name", card._name),
-                        new XElement("Weight", card._weight),
-                        new XElement("Pushup", card._pushup),
-                        new XElement("NumberOfShots", card._nmrOfShots)
-                        ));
-            }
-
-            root.Save("bodybuilders2.xml"); //saving to my documents
-        }
-        public void LoadFromXMLParts(string fileName)
+        public List<Card> LoadFromXMLParts(string fileName = "bodybuilders.xml")
         {
             XElement element = XElement.Load(fileName);
             var partNodes = element.Elements("fighter");
@@ -51,33 +33,13 @@ namespace ModellingProjectGSE2
                 card._pushup = Convert.ToInt32(node.Element("pushup").Value);
                 card._nmrOfShots = Convert.ToInt32(node.Element("numbersofshot").Value);
                 _listOfCards.Add(card);
-                Console.WriteLine($"{card._name}, {card._weight}, {card._pushup}, {card._nmrOfShots}");
 
             }
+            return _listOfCards;
         }
+        //innen legyen beolvasás, ne a card osztályból
 
-        public void Reading()
-        {
-            /*
-            XDocument doc = XDocument.Load(fileName);
-
-            foreach (XElement el in doc.Root.Elements())
-            {
-                Console.WriteLine("{0} {1}", el.Name, el.Attribute("id").Value);
-                //Console.WriteLine("  Attributes:");
-                foreach (XAttribute attr in el.Attributes())
-                    Console.WriteLine("    {0}", attr);
-                //Console.WriteLine("  Elements:");
-
-                foreach (XElement element in el.Elements())
-                    Console.WriteLine("    {0}: {1}", element.Name, element.Value);
-            }*/
-            
-            
-
-
-             
-        }
+        
         
     }
 }

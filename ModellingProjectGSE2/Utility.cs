@@ -30,7 +30,8 @@ namespace ModellingProjectGSE2
         public List<Card> Shuffle(List<Card> deck)
         {
             // May need to rewrite!
-            List<Card> shuffeledList = deck.OrderBy(a => Guid.NewGuid()).ToList();
+            var rnd = new Random();
+            List<Card> shuffeledList = deck.OrderBy(a => rnd.Next()).ToList();
             return shuffeledList;
         }
         public void ElementaryDealer(int numberOfPlayers, List<Card> deck)
@@ -41,7 +42,9 @@ namespace ModellingProjectGSE2
             }
 
             List<Player> players = new List<Player>();
-            Shuffle(deck);
+
+            List<Card> goodDeck = new List<Card>();
+            goodDeck = Shuffle(deck);
 
             for (int i = 0; i < numberOfPlayers; i++)
             {
@@ -50,15 +53,15 @@ namespace ModellingProjectGSE2
                 players.Add(new Player(name));
 
             }
-            for (int i = 0; i < deck.Count; i++)
+            for (int i = 0; i < goodDeck.Count; i++)
             {
                 if (i==0 || i%2==0)
                 {
-                    players[0].Hand.Add(deck[i]);
+                    players[0].Hand.Add(goodDeck[i]);
                 }
                 else
                 {
-                    players[1].Hand.Add(deck[i]);
+                    players[1].Hand.Add(goodDeck[i]);
                 }
             }
 

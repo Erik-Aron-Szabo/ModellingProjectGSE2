@@ -98,6 +98,75 @@ namespace ModellingProjectGSE2
             }
         }
 
+        public void Round(List<Player> listOfPlayers)
+        {
+            Comparer comparer = new Comparer();
+            // TABLE = List<Card> table
+            bool stillGoing = true;
+            while (stillGoing)
+            {
+                foreach (Player player in listOfPlayers)
+                {
+                    Console.WriteLine("Which attribute do you choose?");
+                    Console.WriteLine("(weight), (pushup), (shots)");
+                    string ui = Console.ReadLine();
+                    if (ui == "weight")
+                    {
+                        comparer.Compare()
+                    }
+                    else if (ui == "pushup")
+                    {
 
+                    }
+                    else if (ui == "shots")
+                    {
+
+                    }
+                }
+
+
+
+                if (true) // a player's Hand = 0 gameOver
+                {
+
+                }
+            }
+        }
+
+        public bool GameNotOver(List<Player> listOfPlayers)
+        {
+            bool gameOver = true;
+            foreach (Player player in listOfPlayers)
+            {
+                if (player.Hand.Count == 0)
+                {
+                    gameOver = false;//game is over
+                }
+            }
+            return gameOver;
+        }
+
+        public List<Player> GetListOfPlayers()
+        {
+            Console.WriteLine("How may players are going to play? (2,4,8,16)");
+            int numOfPlayers = Int32.Parse(Console.ReadLine());
+            List<int> temp = new List<int> { 2, 4, 8, 16 };
+            List<Player> listOfPlayers = new List<Player>();
+            if (!temp.Contains(numOfPlayers))
+            {
+                Console.WriteLine("Invalid Input!");
+            }
+
+            for (int i = 0; i < numOfPlayers; i++)
+            {
+                Console.WriteLine("Name of Player: ");
+                string name = Console.ReadLine();
+                Player player = new Player(name);
+                listOfPlayers.Add(player);
+            }
+
+            return listOfPlayers;
+
+        }
     }
 }

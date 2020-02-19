@@ -37,7 +37,6 @@ namespace ModellingProjectGSE2
             }
             return _listOfCards;
         }
-        //innen legyen beolvasás, ne a card osztályból
 
         
         

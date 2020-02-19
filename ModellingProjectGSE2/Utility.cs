@@ -156,7 +156,7 @@ namespace ModellingProjectGSE2
 
         public List<Player> GetListOfPlayers()
         {
-            Console.WriteLine("How may players are going to play? (2,4,8,16)");
+            Console.WriteLine("How may players are going to play? (2,4,8,16,32)");
             int numOfPlayers = Int32.Parse(Console.ReadLine());
             List<int> temp = new List<int> { 2, 4, 8, 16 };
             List<Player> listOfPlayers = new List<Player>();

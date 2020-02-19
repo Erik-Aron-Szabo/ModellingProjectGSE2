@@ -5,19 +5,19 @@ namespace ModellingProjectGSE2
 {
     public class Rules
     {
-        /*
+        
         public void HandSizeCheck()
         {
-            foreach (Player player in players)
+            Utility utility = new Utility();
+            foreach (Player player in utility.GetPlayers())
             {
                 if (player.Hand.Count==0)
                 {
-                    //the game is over.
+                    
                 }
             }
         }
-        //public void GetPlayers 
-        */
+        
 
 
 

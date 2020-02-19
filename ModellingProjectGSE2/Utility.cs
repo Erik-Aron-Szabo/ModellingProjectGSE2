@@ -53,19 +53,19 @@ namespace ModellingProjectGSE2
                 players.Add(new Player(name));
 
             }
-            for (int i = 0; i < goodDeck.Count; i++)
+            int dealtCards;
+            int nextCard=0;
+            for (int i = 0; i < players.Count; i++)
             {
-                if (i==0 || i%2==0)
+                dealtCards = 0;
+                while (dealtCards != goodDeck.Count/players.Count)
                 {
-                    players[0].Hand.Add(goodDeck[i]);
-                }
-                else
-                {
-                    players[1].Hand.Add(goodDeck[i]);
+                    players[i].Hand.Add(goodDeck[nextCard]);
+                    dealtCards++;
+                    nextCard++;
                 }
             }
-
-
+            
             for (int i = 0; i < players.Count; i++)
             {
                 Console.WriteLine($"P{(i+1)} ");

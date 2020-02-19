@@ -23,7 +23,7 @@ namespace ModellingProjectGSE2
             //MainMenu.DisplayMenu("Welcome to the Redneck Bodybuilding simulator!", MainMenu.Options);
 
 
-            util.ElementaryDealer(2, card.LoadFromXMLParts());
+            util.ElementaryDealer(16, card.LoadFromXMLParts());
 
 
 

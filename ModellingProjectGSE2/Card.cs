@@ -26,9 +26,6 @@ namespace ModellingProjectGSE2
         {
 
         }
-        /// <summary>
-        /// Move these methods to a separate class (like, XmlParser)
-        /// </summary>
        
     }
 }

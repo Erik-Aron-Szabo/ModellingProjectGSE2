@@ -7,7 +7,7 @@ namespace ModellingProjectGSE2
 {
     public class Menu
     {
-        public List<string> StartOptions = new List<string> { "Start 'game'", "Exit" };
+        public List<string> StartOptions = new List<string> { "start", "exit" };
 
         public void DisplayMenu(string intro, List<string> options)
         {
@@ -16,7 +16,7 @@ namespace ModellingProjectGSE2
 
             foreach (var option in options)
             {
-                Console.WriteLine($"({i}) {option}");
+                Console.WriteLine($"{option}");
                 i++;
             }
         }
@@ -29,7 +29,6 @@ namespace ModellingProjectGSE2
         public void Switch(Comparer comparer, Utility util, Read read, Card card)
         {
             Console.WriteLine("What would you like to do?");
-            Console.WriteLine("(type the name with small case)");
             string ui = Console.ReadLine();
             switch (ui)
             {
@@ -38,10 +37,8 @@ namespace ModellingProjectGSE2
                     break;
 
                 case "start":
-                    int numOfPlayers;
-                    numOfPlayers = util.GetListOfPlayers().Count();
-
-                    util.ElementaryDealer(numOfPlayers, read.LoadFromXMLParts());
+                    Console.Clear();
+                    util.ElementaryDealer(read.LoadFromXMLParts());
                     break;
             }
         }

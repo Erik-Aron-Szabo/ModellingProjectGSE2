@@ -16,7 +16,7 @@ namespace ModellingProjectGSE2
             bool gameStillGoing = true;
             goodDeck = Shuffle(deck);
             Console.WriteLine("How many players are going to play? ( 2, 4, 8, 16, 32)");
-            int numberOfPlayers = 4;//Convert.ToInt32(Console.ReadLine());
+            int numberOfPlayers = 8;//Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             players = GetListOfPlayers(numberOfPlayers);
             GivePlayersCards(players);

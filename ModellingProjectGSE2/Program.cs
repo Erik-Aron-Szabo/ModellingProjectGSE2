@@ -25,10 +25,7 @@ namespace ModellingProjectGSE2
 
 
 
-            while (true) 
-            {
-
-            }
+            
 
             MainMenu.DisplayMenu("Welcome to the Redneck Bodybuilding simulator!", MainMenu.StartOptions);
             MainMenu.Switch(Comparer, util, read, card);

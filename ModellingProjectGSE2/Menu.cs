@@ -11,7 +11,7 @@ namespace ModellingProjectGSE2
 
         public void DisplayMenu(string intro, List<string> options)
         {
-            int i = 0;
+            int i = 1;
             Console.WriteLine(intro);
 
             foreach (var option in options)

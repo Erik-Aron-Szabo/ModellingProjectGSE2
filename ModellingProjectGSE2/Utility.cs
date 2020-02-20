@@ -7,8 +7,8 @@ namespace ModellingProjectGSE2
 {
     public class Utility
     {
-        List<Player> players;
-        Player actualPlayer;
+        public List<Player> players;
+        public Player actualPlayer;
         List<Card> goodDeck;
         public void Switch(string ui) //DELEGATE here
         {
@@ -19,11 +19,14 @@ namespace ModellingProjectGSE2
         {
             goodDeck = Shuffle(deck);
             Console.WriteLine("How many players are going to play? ( 2, 4, 8, 16, 32)");
-            int numberOfPlayers = Convert.ToInt32(Console.ReadLine());
+            int numberOfPlayers = 2;//Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             players = GetListOfPlayers(numberOfPlayers);
-            Console.Clear();
-
+            GivePlayersCards(players);
+            ResizePlayersHands();
+            for (int i = 0; i < players.Count; i++)
+            {
+            }
 
         }
         public List<Card> Shuffle(List<Card> deck)
@@ -64,16 +67,18 @@ namespace ModellingProjectGSE2
         }
         public List<Player> GetListOfPlayers(int n)
         {
-            List<Player> listOfPlayers = new List<Player>();
+            players = new List<Player>();
 
             for (int i = 0; i < n; i++)
             {
                 Console.WriteLine("Name of Player"+(i+1)+": ");
-                string name = Console.ReadLine();
-                Player player = new Player(name);
-                listOfPlayers.Add(player);
+                string name = "rerear"+i;// Console.ReadLine();
+                actualPlayer = new Player(name);
+                players.Add(actualPlayer);
             }
-            return listOfPlayers;
+            Console.Clear();
+
+            return players;
 
         } 
         public bool GameNotOver(List<Player> listOfPlayers)
@@ -88,6 +93,23 @@ namespace ModellingProjectGSE2
             }
             return gameOver;
         }
+        public void GivePlayersCards(List<Player> players)
+        {
+            int dealtCards;
+            int nextCard = 0;
+
+            for (int i = 0; i < players.Count; i++)
+            {
+                dealtCards = 0;
+                while (dealtCards != goodDeck.Count / players.Count)
+                {
+                    players[i].Hand.Add(goodDeck[nextCard]);
+                    dealtCards++;
+                    nextCard++;
+                }
+            }
+        }
+
         public void NiceCLIWriter()
         {
             int dealtCards;
@@ -138,6 +160,23 @@ namespace ModellingProjectGSE2
                 }
             }
         }
+        public void ResizePlayersHands()
+        {
+            List<Card> Comparable = new List<Card>();
+            for (int i = 0; i < players.Count; i++)
+            {
+                Comparable.Add(players[i].Hand[0]);
+            }
+            for (int i = 0; i < players.Count; i++)
+            {
+                for (int j = 1; j < players[i].Hand.Count; j++)
+                {
+                    players[i].Hand[j - 1] = players[i].Hand[j];
+                }
+                players[i].Hand.RemoveAt(players[i].Hand.Count - 1);
+            }
+            
 
+        }
     }
 }

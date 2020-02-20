@@ -29,7 +29,7 @@ namespace ModellingProjectGSE2
         public void Switch(Comparer comparer, Utility util, Read read, Card card)
         {
             Console.WriteLine("What would you like to do?");
-            string ui = Console.ReadLine();
+            string ui = "start";//Console.ReadLine();
             switch (ui)
             {
                 case "exit":

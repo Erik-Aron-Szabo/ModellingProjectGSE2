@@ -10,20 +10,23 @@ namespace ModellingProjectGSE2
         public List<Player> players;
         public Player actualPlayer;
         List<Card> goodDeck;
-        public void Switch(string ui) //DELEGATE here
-        {
-
-        }
-
+       
         public void ElementaryDealer(List<Card> deck)
         {
+            bool gameStillGoing = true;
             goodDeck = Shuffle(deck);
             Console.WriteLine("How many players are going to play? ( 2, 4, 8, 16, 32)");
             int numberOfPlayers = 4;//Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             players = GetListOfPlayers(numberOfPlayers);
             GivePlayersCards(players);
-            ResizePlayersHands();
+
+            while (gameStillGoing)
+            {
+                ResizePlayersHands();
+                gameStillGoing = GameStillGoing(players);
+            }
+
         }
         public List<Card> Shuffle(List<Card> deck)
         {
@@ -58,7 +61,7 @@ namespace ModellingProjectGSE2
 
                     }
                 }
-                GameNotOver(players);
+                GameStillGoing(players);
             }
         }
         public List<Player> GetListOfPlayers(int n)
@@ -77,17 +80,19 @@ namespace ModellingProjectGSE2
             return players;
 
         }
-        public bool GameNotOver(List<Player> listOfPlayers)
+        public bool GameStillGoing(List<Player> listOfPlayers)
         {
-            bool gameOver = true;
+            bool gameStillGoing = true;
             foreach (Player player in listOfPlayers)
             {
                 if (player.Hand.Count == 0)
                 {
-                    gameOver = false;//game is over
+                    gameStillGoing = false;//game is over
                 }
+                
             }
-            return gameOver;
+            Console.WriteLine("rák");
+            return gameStillGoing;
         }
         public void GivePlayersCards(List<Player> players)
         {
@@ -106,56 +111,7 @@ namespace ModellingProjectGSE2
             }
         }
 
-        public void NiceCLIWriter()
-        {
-            int dealtCards;
-            int nextCard = 0;
-            int lengthOfName = 0;
-            int lengthOfWeight = 0;
-            int lengthOfPushup = 0;
-            int lengthOfShots = 0;
-
-
-            for (int i = 0; i < players.Count; i++)
-            {
-                dealtCards = 0;
-                while (dealtCards != goodDeck.Count / players.Count)
-                {
-
-                    if (goodDeck[nextCard]._name.Length > lengthOfName)
-                    {
-                        lengthOfName = goodDeck[nextCard]._name.Length;
-                    }
-                    if (goodDeck[nextCard]._weight.ToString().Length > lengthOfWeight)
-                    {
-                        lengthOfWeight = goodDeck[nextCard]._weight.ToString().Length;
-                    }
-
-                    if (goodDeck[nextCard]._pushup.ToString().Length > lengthOfPushup)
-                    {
-                        lengthOfPushup = goodDeck[nextCard]._pushup.ToString().Length;
-                    }
-                    if (goodDeck[nextCard]._nmrOfShots.ToString().Length > lengthOfShots)
-                    {
-                        lengthOfShots = goodDeck[nextCard]._nmrOfShots.ToString().Length;
-                    }
-                    players[i].Hand.Add(goodDeck[nextCard]);
-                    dealtCards++;
-                    nextCard++;
-                }
-            }
-
-
-            for (int i = 0; i < players.Count; i++)
-            {
-                Console.WriteLine($"{players[i].Name} ");
-                foreach (Card card in players[i].Hand)
-                {
-                    Console.WriteLine($"{{0,{lengthOfName + 1}}} {{1,{lengthOfWeight + 1}}}, {{2,{lengthOfPushup + 1}}}, {{3,{lengthOfShots + 1}}}",
-                        card._name, card._weight, card._pushup, card._nmrOfShots);
-                }
-            }
-        }
+        
         public void ResizePlayersHands()
         {
             Comparer comparer = new Comparer();
@@ -244,33 +200,57 @@ namespace ModellingProjectGSE2
                 Console.WriteLine("This round's winner card is: " + maxCard._name);
             }
             return maxCard;
+        }
+        public void NiceCLIWriter()
+        {
+            int dealtCards;
+            int nextCard = 0;
+            int lengthOfName = 0;
+            int lengthOfWeight = 0;
+            int lengthOfPushup = 0;
+            int lengthOfShots = 0;
 
 
+            for (int i = 0; i < players.Count; i++)
+            {
+                dealtCards = 0;
+                while (dealtCards != goodDeck.Count / players.Count)
+                {
+
+                    if (goodDeck[nextCard]._name.Length > lengthOfName)
+                    {
+                        lengthOfName = goodDeck[nextCard]._name.Length;
+                    }
+                    if (goodDeck[nextCard]._weight.ToString().Length > lengthOfWeight)
+                    {
+                        lengthOfWeight = goodDeck[nextCard]._weight.ToString().Length;
+                    }
+
+                    if (goodDeck[nextCard]._pushup.ToString().Length > lengthOfPushup)
+                    {
+                        lengthOfPushup = goodDeck[nextCard]._pushup.ToString().Length;
+                    }
+                    if (goodDeck[nextCard]._nmrOfShots.ToString().Length > lengthOfShots)
+                    {
+                        lengthOfShots = goodDeck[nextCard]._nmrOfShots.ToString().Length;
+                    }
+                    players[i].Hand.Add(goodDeck[nextCard]);
+                    dealtCards++;
+                    nextCard++;
+                }
+            }
 
 
-
-
-
-
-
-
-
-
-            // Max
-
-            //int j = 1;
-            //switch (ui)
-            //{
-            //    case "weight":
-            //        for (int i = 0; i < players.Count; i++)
-            //        {
-            //            comparer.WeightCompare(players[i].Hand[0], players[j].Hand[0]);
-            //            j++;
-            //        }
-
-            //        break;
-            //}
-
+            for (int i = 0; i < players.Count; i++)
+            {
+                Console.WriteLine($"{players[i].Name} ");
+                foreach (Card card in players[i].Hand)
+                {
+                    Console.WriteLine($"{{0,{lengthOfName + 1}}} {{1,{lengthOfWeight + 1}}}, {{2,{lengthOfPushup + 1}}}, {{3,{lengthOfShots + 1}}}",
+                        card._name, card._weight, card._pushup, card._nmrOfShots);
+                }
+            }
         }
     }
+
 }

@@ -10,10 +10,6 @@ namespace ModellingProjectGSE2
         public List<Player> players;
         public Player actualPlayer;
         List<Card> goodDeck;
-        public void Switch(string ui) //DELEGATE here
-        {
-
-        }
 
         public void ElementaryDealer(List<Card> deck)
         {
@@ -25,12 +21,7 @@ namespace ModellingProjectGSE2
             GivePlayersCards(players);
             ResizePlayersHands();
         }
-        public List<Card> Shuffle(List<Card> deck)
-        {
-            var rnd = new Random();
-            List<Card> shuffeledList = deck.OrderBy(a => rnd.Next()).ToList();
-            return shuffeledList;
-        }
+        
         public void Round(List<Player> listOfPlayers)
         {
             // TABLE = List<Card> table
@@ -106,7 +97,80 @@ namespace ModellingProjectGSE2
             }
         }
 
-        public void NiceCLIWriter()
+        
+        public void ResizePlayersHands()
+        {
+
+            Comparer comparer = new Comparer();
+            List<Card> tableOfCards = new List<Card>();
+            for (int i = 0; i < players.Count; i++)
+            {
+                tableOfCards.Add(players[i].Hand[0]);
+            }
+            for (int i = 0; i < players.Count; i++)
+            {
+                for (int j = 1; j < players[i].Hand.Count; j++)
+                {
+                    players[i].Hand[j - 1] = players[i].Hand[j];
+                }
+                players[i].Hand.RemoveAt(players[i].Hand.Count - 1);
+            }
+            CardComparer(tableOfCards);
+            GameWinner(players, tableOfCards);
+        }
+
+        public Card CardComparer(List<Card> tableOfCards) // gives back list of cards to winner
+        {
+            List<Card> wonCards;
+            List<Card> temp = new List<Card>();
+            temp = tableOfCards;
+            //Console.WriteLine("Choose an attribute: ");
+            //Console.WriteLine("weight, pushup, shots");
+            //string ui = Console.ReadLine();
+            Card maxCard = new Card();
+            foreach (var item in temp)
+            {
+                Console.WriteLine($"Name: {item._name} Weight: {item._weight}");
+            }
+            for (int i = 0; i < temp.Count-1; i++)
+            {
+                if (temp[i]._weight > temp[i+1]._weight)
+                {
+                    maxCard = temp[i];
+                }
+
+            }
+            
+            Console.WriteLine(maxCard._name);
+            Console.WriteLine(maxCard._weight);
+            
+            return maxCard;
+        }
+
+        public Player GameWinner(List<Player> listOfPlayers, List<Card> wonCards)
+        {
+            Player winner = new Player();
+            int maxHand = 0;
+            for (int i = 0; i < listOfPlayers.Count; i++)
+            {
+                if (listOfPlayers[i].Hand.Count > maxHand)
+                {
+                    maxHand = listOfPlayers[i].Hand.Count;
+                    winner = listOfPlayers[i];
+                }
+            }
+            Console.WriteLine($"Winner is: {winner.ToString()}");
+            return winner;
+        }
+        /// <summary>
+        /// if (player.Hand.Count == 0)
+          //      {
+
+         //       }
+    /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// </summary>
+
+    public void NiceCLIWriter()
         {
             int dealtCards;
             int nextCard = 0;
@@ -156,64 +220,12 @@ namespace ModellingProjectGSE2
                 }
             }
         }
-        public void ResizePlayersHands()
+
+        public List<Card> Shuffle(List<Card> deck)
         {
-            Comparer comparer = new Comparer();
-            List<Card> tableOfCards = new List<Card>();
-            for (int i = 0; i < players.Count; i++)
-            {
-                tableOfCards.Add(players[i].Hand[0]);
-            }
-            for (int i = 0; i < players.Count; i++)
-            {
-                for (int j = 1; j < players[i].Hand.Count; j++)
-                {
-                    players[i].Hand[j - 1] = players[i].Hand[j];
-                }
-                players[i].Hand.RemoveAt(players[i].Hand.Count - 1);
-            }
-            CardComparer(tableOfCards);
-
-        }
-
-        public void CardComparer(List<Card> tableOfCards)
-        {
-
-            List<Card> temp = new List<Card>();
-            temp = tableOfCards;
-            //Console.WriteLine("Choose an attribute: ");
-            //Console.WriteLine("weight, pushup, shots");
-            //string ui = Console.ReadLine();
-            Card maxCard = new Card();
-            foreach (var item in temp)
-            {
-                Console.WriteLine($"Name: {item._name} Weight: {item._weight}");
-            }
-            for (int i = 0; i < temp.Count-1; i++)
-            {
-                if (temp[i]._weight > temp[i+1]._weight)
-                {
-                    maxCard = temp[i];
-                }
-
-            }
-
-            Console.WriteLine(maxCard._name);
-            // Max
-
-            //int j = 1;
-            //switch (ui)
-            //{
-            //    case "weight":
-            //        for (int i = 0; i < players.Count; i++)
-            //        {
-            //            comparer.WeightCompare(players[i].Hand[0], players[j].Hand[0]);
-            //            j++;
-            //        }
-
-            //        break;
-            //}
-
+            var rnd = new Random();
+            List<Card> shuffeledList = deck.OrderBy(a => rnd.Next()).ToList();
+            return shuffeledList;
         }
     }
 }

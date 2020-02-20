@@ -7,6 +7,8 @@ namespace ModellingProjectGSE2
 {
     public class Utility
     {
+        public HashCode winSet = new HashCode(); // HASH_CODE
+        public int gameCounter = 0;
         public List<Player> players;
         public Player actualPlayer;
         List<Card> goodDeck;
@@ -16,17 +18,46 @@ namespace ModellingProjectGSE2
             bool gameStillGoing = true;
             goodDeck = Shuffle(deck);
             Console.WriteLine("How many players are going to play? ( 2, 4, 8, 16, 32)");
-            int numberOfPlayers = 8;//Convert.ToInt32(Console.ReadLine());
-            Console.Clear();
-            players = GetListOfPlayers(numberOfPlayers);
-            GivePlayersCards(players);
-
-            while (gameStillGoing)
+            try
             {
-                ResizePlayersHands();
-                gameStillGoing = GameStillGoing(players);
+                int numberOfPlayers = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                players = GetListOfPlayers(numberOfPlayers);
+                GivePlayersCards(players);
+                int counter = 0;
+                Player theWinner = new Player();
+                while (gameStillGoing)
+                {
+                    ResizePlayersHands();
+                    gameStillGoing = GameStillGoing(players);
+                    DisplayWinner(WinnerIs(players));
+                    gameCounter++;
+                    theWinner = WinnerIs(players);
+                    winSet.Add<Player>(theWinner); // unnecessary maybe
+                }
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Invalid input!");
             }
 
+        }
+
+
+        public Player WinnerIs(List<Player> players)
+        {
+            Player theWinner = new Player();
+            int winner = 0;
+            foreach (Player player in players)
+            {
+                if (player.Hand.Count > winner)
+                {
+                    winner = player.Hand.Count;
+                    theWinner = player;
+                }
+            }
+            return theWinner;
         }
         public List<Card> Shuffle(List<Card> deck)
         {
@@ -79,6 +110,12 @@ namespace ModellingProjectGSE2
 
             return players;
 
+        }
+
+        public void DisplayWinner(Player winner)
+        {
+            Console.WriteLine($"Winner: {winner.ToString()}");
+            gameCounter++;
         }
         public bool GameStillGoing(List<Player> listOfPlayers)
         {

@@ -25,6 +25,10 @@ namespace ModellingProjectGSE2
         {
 
         }
-
+        public override string ToString()
+        {
+            string player = this.Name;
+            return player;
+        }
     }
 }

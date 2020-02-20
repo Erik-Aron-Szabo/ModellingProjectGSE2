@@ -10,18 +10,27 @@ namespace ModellingProjectGSE2
         public List<Player> players;
         public Player actualPlayer;
         List<Card> goodDeck;
+        public void Switch(string ui) //DELEGATE here
+        {
+
+        }
 
         public void ElementaryDealer(List<Card> deck)
         {
             goodDeck = Shuffle(deck);
             Console.WriteLine("How many players are going to play? ( 2, 4, 8, 16, 32)");
-            int numberOfPlayers = 2;//Convert.ToInt32(Console.ReadLine());
+            int numberOfPlayers = 4;//Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             players = GetListOfPlayers(numberOfPlayers);
             GivePlayersCards(players);
             ResizePlayersHands();
         }
-        
+        public List<Card> Shuffle(List<Card> deck)
+        {
+            var rnd = new Random();
+            List<Card> shuffeledList = deck.OrderBy(a => rnd.Next()).ToList();
+            return shuffeledList;
+        }
         public void Round(List<Player> listOfPlayers)
         {
             // TABLE = List<Card> table
@@ -58,8 +67,8 @@ namespace ModellingProjectGSE2
 
             for (int i = 0; i < n; i++)
             {
-                Console.WriteLine("Name of Player"+(i+1)+": ");
-                string name = Console.ReadLine();
+                Console.WriteLine("Name of Player" + (i + 1) + ": ");
+                string name = "player" + i;//Console.ReadLine();
                 actualPlayer = new Player(name);
                 players.Add(actualPlayer);
             }
@@ -67,7 +76,7 @@ namespace ModellingProjectGSE2
 
             return players;
 
-        } 
+        }
         public bool GameNotOver(List<Player> listOfPlayers)
         {
             bool gameOver = true;
@@ -97,80 +106,7 @@ namespace ModellingProjectGSE2
             }
         }
 
-        
-        public void ResizePlayersHands()
-        {
-
-            Comparer comparer = new Comparer();
-            List<Card> tableOfCards = new List<Card>();
-            for (int i = 0; i < players.Count; i++)
-            {
-                tableOfCards.Add(players[i].Hand[0]);
-            }
-            for (int i = 0; i < players.Count; i++)
-            {
-                for (int j = 1; j < players[i].Hand.Count; j++)
-                {
-                    players[i].Hand[j - 1] = players[i].Hand[j];
-                }
-                players[i].Hand.RemoveAt(players[i].Hand.Count - 1);
-            }
-            CardComparer(tableOfCards);
-            GameWinner(players, tableOfCards);
-        }
-
-        public Card CardComparer(List<Card> tableOfCards) // gives back list of cards to winner
-        {
-            List<Card> wonCards;
-            List<Card> temp = new List<Card>();
-            temp = tableOfCards;
-            //Console.WriteLine("Choose an attribute: ");
-            //Console.WriteLine("weight, pushup, shots");
-            //string ui = Console.ReadLine();
-            Card maxCard = new Card();
-            foreach (var item in temp)
-            {
-                Console.WriteLine($"Name: {item._name} Weight: {item._weight}");
-            }
-            for (int i = 0; i < temp.Count-1; i++)
-            {
-                if (temp[i]._weight > temp[i+1]._weight)
-                {
-                    maxCard = temp[i];
-                }
-
-            }
-            
-            Console.WriteLine(maxCard._name);
-            Console.WriteLine(maxCard._weight);
-            
-            return maxCard;
-        }
-
-        public Player GameWinner(List<Player> listOfPlayers, List<Card> wonCards)
-        {
-            Player winner = new Player();
-            int maxHand = 0;
-            for (int i = 0; i < listOfPlayers.Count; i++)
-            {
-                if (listOfPlayers[i].Hand.Count > maxHand)
-                {
-                    maxHand = listOfPlayers[i].Hand.Count;
-                    winner = listOfPlayers[i];
-                }
-            }
-            Console.WriteLine($"Winner is: {winner.ToString()}");
-            return winner;
-        }
-        /// <summary>
-        /// if (player.Hand.Count == 0)
-          //      {
-
-         //       }
-    /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /// </summary>
-
-    public void NiceCLIWriter()
+        public void NiceCLIWriter()
         {
             int dealtCards;
             int nextCard = 0;
@@ -220,12 +156,121 @@ namespace ModellingProjectGSE2
                 }
             }
         }
-
-        public List<Card> Shuffle(List<Card> deck)
+        public void ResizePlayersHands()
         {
-            var rnd = new Random();
-            List<Card> shuffeledList = deck.OrderBy(a => rnd.Next()).ToList();
-            return shuffeledList;
+            Comparer comparer = new Comparer();
+            List<Card> tableOfCards = new List<Card>();
+            for (int i = 0; i < players.Count; i++)
+            {
+                tableOfCards.Add(players[i].Hand[0]);
+            }
+            for (int i = 0; i < players.Count; i++)
+            {
+                for (int j = 1; j < players[i].Hand.Count; j++)
+                {
+                    players[i].Hand[j - 1] = players[i].Hand[j];
+                }
+                players[i].Hand.RemoveAt(players[i].Hand.Count - 1);
+            }
+            Card highestOfRound;
+            highestOfRound = CardComparer(tableOfCards, "weight");
+            for (int i = 0; i < tableOfCards.Count; i++)
+            {
+                if (tableOfCards[i] == highestOfRound)
+                {
+                    Console.WriteLine(i);
+                    for (int j = 0; j < tableOfCards.Count; j++)
+                    {
+                        players[i].Hand.Add(tableOfCards[j]);
+                    }
+                }
+            }
+            for (int i = 0; i < players.Count; i++)
+            {
+                Console.WriteLine(players[i].Name + "\n");
+                for (int j = 0; j < players[i].Hand.Count; j++)
+                {
+                    Console.WriteLine(players[i].Hand[j]._name);
+                }
+            }
+        }
+
+        public Card CardComparer(List<Card> tableOfCards, string attr)
+        {
+            List<Card> temp = new List<Card>();
+            temp = tableOfCards;
+            //Console.WriteLine("Choose an attribute: ");
+            //Console.WriteLine("weight, pushup, shots");
+            //string ui = Console.ReadLine();
+            Card maxCard = new Card();
+            for (int i = 0; i < tableOfCards.Count; i++)
+            {
+                Console.WriteLine(tableOfCards[i]._name + " " + tableOfCards[i]._weight);
+            }
+            if (attr == "weight")
+            {
+                maxCard = temp[0];
+                for (int i = 1; i < temp.Count; i++)
+                {
+                    if (maxCard._weight < temp[i]._weight)
+                    {
+                        maxCard = temp[i];
+                    }
+                }
+                Console.WriteLine("This round's winner card is: " + maxCard._name);
+            }
+            else if (attr == "pushup")
+            {
+                maxCard = temp[0];
+                for (int i = 1; i < temp.Count; i++)
+                {
+                    if (maxCard._pushup < temp[i]._pushup)
+                    {
+                        maxCard = temp[i];
+                    }
+                }
+                Console.WriteLine("This round's winner card is: " + maxCard._name);
+            }
+            else if (attr == "shots")
+            {
+                maxCard = temp[0];
+                for (int i = 1; i < temp.Count; i++)
+                {
+                    if (maxCard._nmrOfShots < temp[i]._nmrOfShots)
+                    {
+                        maxCard = temp[i];
+                    }
+                }
+                Console.WriteLine("This round's winner card is: " + maxCard._name);
+            }
+            return maxCard;
+
+
+
+
+
+
+
+
+
+
+
+
+            // Max
+
+            //int j = 1;
+            //switch (ui)
+            //{
+            //    case "weight":
+            //        for (int i = 0; i < players.Count; i++)
+            //        {
+            //            comparer.WeightCompare(players[i].Hand[0], players[j].Hand[0]);
+            //            j++;
+            //        }
+
+            //        break;
+            //}
+
         }
     }
 }

@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+    <fighter id="1">
+      <name>Fekete Fek</name>
+      <weight>162</weight>
+      <pushup>210</pushup>
+      <numbersofshot>37</numbersofshot>
+    </fighter>
+    <fighter id="2">
+      <name>Tolgyfa Istvan</name>
+      <weight>106</weight>
+      <pushup>152</pushup>
+      <numbersofshot>44</numbersofshot>
+    </fighter>
+    <fighter id="3">
+      <name>Szak Adrian</name>
+      <weight>100</weight>
+      <pushup>167</pushup>
+      <numbersofshot>12</numbersofshot>
+    </fighter>
+    <fighter id="4">
+      <name>Nyomi Zombor</name>
+      <weight>113</weight>
+      <pushup>200</pushup>
+      <numbersofshot>9</numbersofshot>
+    </fighter>
+    <fighter id="5">
+      <name>Almas David</name>
+      <weight>103</weight>
+      <pushup>177</pushup>
+      <numbersofshot>28</numbersofshot>
+    </fighter>
+    <fighter id="6">
+      <name>Tepsis Tamas</name>
+      <weight>99</weight>
+      <pushup>139</pushup>
+      <numbersofshot>2</numbersofshot>
+    </fighter>
+    <fighter id="7">
+      <name>Lapatos Laci</name>
+      <weight>136</weight>
+      <pushup>123</pushup>
+      <numbersofshot>6</numbersofshot>
+    </fighter>
+    <fighter id="8">
+      <name>Kertes Kevin</name>
+      <weight>120</weight>
+      <pushup>180</pushup>
+      <numbersofshot>17</numbersofshot>
+    </fighter>
+    <fighter id="9">
+      <name>Diktator Daniel</name>
+      <weight>89</weight>
+      <pushup>162</pushup>
+      <numbersofshot>67</numbersofshot>
+    </fighter>
+    <fighter id="10">
+      <name>Im From India</name>
+      <weight>125</weight>
+      <pushup>188</pushup>
+      <numbersofshot>19</numbersofshot>
+    </fighter>
+    <fighter id="11">
+      <name>Sebesz Misi</name>
+      <weight>111</weight>
+      <pushup>177</pushup>
+      <numbersofshot>10</numbersofshot>
+    </fighter>
+    <fighter id="12">
+      <name>Ugyes Gergo</name>
+      <weight>240</weight>
+      <pushup>397</pushup>
+      <numbersofshot>35</numbersofshot>
+    </fighter>
+    <fighter id="13">
+      <name>Szena Szabolcs</name>
+      <weight>114</weight>
+      <pushup>189</pushup>
+      <numbersofshot>21</numbersofshot>
+    </fighter>
+    <fighter id="14">
+      <name>Fehrjepor Feri</name>
+      <weight>101</weight>
+      <pushup>168</pushup>
+      <numbersofshot>13</numbersofshot>
+    </fighter>
+    <fighter id="15">
+      <name>Lakattalan Balazs</name>
+      <weight>102</weight>
+      <pushup>112</pushup>
+      <numbersofshot>20</numbersofshot>
+    </fighter>
+    <fighter id="16">
+      <name>Olaszosan Otto</name>
+      <weight>117</weight>
+      <pushup>199</pushup>
+      <numbersofshot>7</numbersofshot>
+    </fighter>
+    <fighter id="17">
+      <name>Magyarosan Matyi</name>
+      <weight>107</weight>
+      <pushup>191</pushup>
+      <numbersofshot>43</numbersofshot>
+    </fighter>
+    <fighter id="18">
+      <name>Felhotlen Ferencz</name>
+      <weight>105</weight>
+      <pushup>181</pushup>
+      <numbersofshot>10</numbersofshot>
+    </fighter>
+    <fighter id="19">
+      <name>Hardworker Matyas</name>
+      <weight>100</weight>
+      <pushup>10</pushup>
+      <numbersofshot>1</numbersofshot>
+    </fighter>
+    <fighter id="20">
+      <name>Kicsi Tomi</name>
+      <weight>116</weight>
+      <pushup>189</pushup>
+      <numbersofshot>24</numbersofshot>
+    </fighter>
+    <fighter id="21">
+      <name>Szab Szilveszter</name>
+      <weight>90</weight>
+      <pushup>160</pushup>
+      <numbersofshot>17</numbersofshot>
+    </fighter>
+    <fighter id="22">
+      <name>Zab Zoli</name>
+      <weight>95</weight>
+      <pushup>167</pushup>
+      <numbersofshot>18</numbersofshot>
+    </fighter>
+    <fighter id="23">
+      <name>Why Jackson</name>
+      <weight>97</weight>
+      <pushup>172</pushup>
+      <numbersofshot>19</numbersofshot>
+    </fighter>
+    <fighter id="24">
+      <name>Teglas Jozsi</name>
+      <weight>150</weight>
+      <pushup>90</pushup>
+      <numbersofshot>30</numbersofshot>
+    </fighter>
+    <fighter id="25">
+      <name>Vicc Elek</name>
+      <weight>128</weight>
+      <pushup>70</pushup>
+      <numbersofshot>40</numbersofshot>
+    </fighter>
+    <fighter id="26">
+      <name>Nap Pali</name>
+      <weight>190</weight>
+      <pushup>50</pushup>
+      <numbersofshot>42</numbersofshot>
+    </fighter>
+    <fighter id="27">
+      <name>Kad Kende</name>
+      <weight>80</weight>
+      <pushup>10</pushup>
+      <numbersofshot>50</numbersofshot>
+    </fighter>
+    <fighter id="28">
+      <name>Szalma Attila</name>
+      <weight>65</weight>
+      <pushup>5</pushup>
+      <numbersofshot>5</numbersofshot>
+    </fighter>
+    <fighter id="29">
+      <name>Tibeti Tibor</name>
+      <weight>91</weight>
+      <pushup>30</pushup>
+      <numbersofshot>65</numbersofshot>
+    </fighter>
+    <fighter id="30">
+      <name>Bodon Odon</name>
+      <weight>145</weight>
+      <pushup>35</pushup>
+      <numbersofshot>18</numbersofshot>
+    </fighter>
+    <fighter id="31">
+      <name>Nekedcsak Jozsi</name>
+      <weight>75</weight>
+      <pushup>45</pushup>
+      <numbersofshot>14</numbersofshot>
+    </fighter>
+    <fighter id="32">
+      <name>Nekemcsak Jozsef</name>
+      <weight>76</weight>
+      <pushup>46</pushup>
+      <numbersofshot>15</numbersofshot>
+    </fighter>
+</ArrayOfCard>
+

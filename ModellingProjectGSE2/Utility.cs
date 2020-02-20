@@ -108,9 +108,9 @@ namespace ModellingProjectGSE2
 
         public void Round(List<Player> listOfPlayers)
         {
-            Comparer comparer = new Comparer();
             // TABLE = List<Card> table
             bool stillGoing = true;
+            Comparer comparer = new Comparer();
             while (stillGoing)
             {
                 foreach (Player player in listOfPlayers)
@@ -120,24 +120,23 @@ namespace ModellingProjectGSE2
                     string ui = Console.ReadLine();
                     if (ui == "weight")
                     {
-                        comparer.Compare()
+                        comparer.WeightCompare(player.Hand[0], player.Hand[0]);
                     }
                     else if (ui == "pushup")
                     {
+                        comparer.PushupCompare(player.Hand[0], player.Hand[0]);
 
                     }
                     else if (ui == "shots")
                     {
+                        comparer.ShotsCompare(player.Hand[0], player.Hand[0]);
 
                     }
                 }
 
 
 
-                if (true) // a player's Hand = 0 gameOver
-                {
-
-                }
+                GameNotOver(players);
             }
         }
 
@@ -156,7 +155,7 @@ namespace ModellingProjectGSE2
 
         public List<Player> GetListOfPlayers()
         {
-            Console.WriteLine("How may players are going to play? (2,4,8,16,32)");
+            Console.WriteLine("How many players are going to play? (2,4,8,16,32)");
             int numOfPlayers = Int32.Parse(Console.ReadLine());
             List<int> temp = new List<int> { 2, 4, 8, 16 };
             List<Player> listOfPlayers = new List<Player>();

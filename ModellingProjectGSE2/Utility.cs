@@ -51,7 +51,7 @@ namespace ModellingProjectGSE2
 
             for (int i = 0; i < numberOfPlayers; i++)
             {
-                Console.WriteLine("Name of Player: ");
+                Console.WriteLine("Mi a neve? Player: ");
                 string name = Console.ReadLine();
                 players.Add(new Player(name));
 

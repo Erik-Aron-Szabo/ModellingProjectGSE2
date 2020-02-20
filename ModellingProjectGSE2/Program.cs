@@ -22,23 +22,17 @@ namespace ModellingProjectGSE2
             Utility util = new Utility();
             Read read = new Read();
             Card card = new Card();
-            //MainMenu.DisplayMenu("Welcome to the Redneck Bodybuilding simulator!", MainMenu.Options);
-
-            int numOfPlayers;
-            numOfPlayers = util.GetListOfPlayers().Count();
-
-            util.ElementaryDealer(numOfPlayers, read.LoadFromXMLParts());
-            while (true) //util.GameNotOver(List<Player> listOfPlayers)
-            {
-                
-                //util.Round
+            //
 
 
+            //while (true) //util.GameNotOver(List<Player> listOfPlayers)
+            //{
+            //    //util.Round
 
+            //}
 
-
-            }
-
+            MainMenu.DisplayMenu("Welcome to the Redneck Bodybuilding simulator!", MainMenu.StartOptions);
+            MainMenu.Switch(Comparer, util, read, card);
 
 
 

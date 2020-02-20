@@ -42,9 +42,5 @@ namespace ModellingProjectGSE2
                     break;
             }
         }
-
-
-
-
     }
 }

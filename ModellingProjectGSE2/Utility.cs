@@ -19,7 +19,7 @@ namespace ModellingProjectGSE2
         {
             goodDeck = Shuffle(deck);
             Console.WriteLine("How many players are going to play? ( 2, 4, 8, 16, 32)");
-            int numberOfPlayers = 2;//Convert.ToInt32(Console.ReadLine());
+            int numberOfPlayers = 4;//Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             players = GetListOfPlayers(numberOfPlayers);
             GivePlayersCards(players);
@@ -68,7 +68,7 @@ namespace ModellingProjectGSE2
             for (int i = 0; i < n; i++)
             {
                 Console.WriteLine("Name of Player"+(i+1)+": ");
-                string name = Console.ReadLine();
+                string name = "player" + i;//Console.ReadLine();
                 actualPlayer = new Player(name);
                 players.Add(actualPlayer);
             }
@@ -172,33 +172,90 @@ namespace ModellingProjectGSE2
                 }
                 players[i].Hand.RemoveAt(players[i].Hand.Count - 1);
             }
-            CardComparer(tableOfCards);
-
+            Card highestOfRound;
+            highestOfRound = CardComparer(tableOfCards,"weight");
+            for (int i = 0; i < tableOfCards.Count; i++)
+            {
+                if (tableOfCards[i] == highestOfRound)
+                {
+                    Console.WriteLine(i);
+                    for (int j = 0; j < tableOfCards.Count; j++)
+                    {
+                        players[i].Hand.Add(tableOfCards[j]);
+                    }
+                }
+            }
+            for (int i = 0; i < players.Count; i++)
+            {
+                Console.WriteLine(players[i].Name+"\n");
+                for (int j = 0; j < players[i].Hand.Count; j++)
+                {
+                    Console.WriteLine(players[i].Hand[j]._name);
+                }
+            }
         }
 
-        public void CardComparer(List<Card> tableOfCards)
+        public Card CardComparer(List<Card> tableOfCards, string attr)
         {
-
             List<Card> temp = new List<Card>();
             temp = tableOfCards;
             //Console.WriteLine("Choose an attribute: ");
             //Console.WriteLine("weight, pushup, shots");
             //string ui = Console.ReadLine();
             Card maxCard = new Card();
-            foreach (var item in temp)
+            for (int i = 0; i < tableOfCards.Count; i++)
             {
-                Console.WriteLine($"Name: {item._name} Weight: {item._weight}");
+                Console.WriteLine(tableOfCards[i]._name+" "+ tableOfCards[i]._weight);
             }
-            for (int i = 0; i < temp.Count-1; i++)
+            if (attr == "weight")
             {
-                if (temp[i]._weight > temp[i+1]._weight)
+                maxCard = temp[0];
+                for (int i = 1; i < temp.Count; i++)
                 {
-                    maxCard = temp[i];
+                    if (maxCard._weight < temp[i]._weight)
+                    {
+                        maxCard = temp[i];
+                    }
                 }
-
+                Console.WriteLine("This round's winner card is: " + maxCard._name);
             }
+            else if (attr == "pushup")
+            {
+                maxCard = temp[0];
+                for (int i = 1; i < temp.Count; i++)
+                {
+                    if (maxCard._pushup < temp[i]._pushup)
+                    {
+                        maxCard = temp[i];
+                    }
+                }
+                Console.WriteLine("This round's winner card is: " + maxCard._name);
+            }
+            else if (attr == "shots")
+            {
+                maxCard = temp[0];
+                for (int i = 1; i < temp.Count; i++)
+                {
+                    if (maxCard._nmrOfShots < temp[i]._nmrOfShots)
+                    {
+                        maxCard = temp[i];
+                    }
+                }
+                Console.WriteLine("This round's winner card is: " + maxCard._name);
+            }
+            return maxCard;
 
-            Console.WriteLine(maxCard._name);
+
+
+
+
+
+
+
+
+
+
+
             // Max
 
             //int j = 1;

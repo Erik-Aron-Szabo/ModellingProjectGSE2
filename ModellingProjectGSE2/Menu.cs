@@ -38,9 +38,7 @@ namespace ModellingProjectGSE2
 
                 case "start":
                     Console.Clear();
-
                     util.ElementaryDealer(read.LoadFromXMLParts());
-                    
                     break;
             }
         }
